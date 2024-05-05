@@ -13,3 +13,6 @@ class Master(object):
 
     def divider(self, firstValue, secondValue):
         return (firstValue / secondValue);
+
+    def toJson(self):
+        return (self.__dict__);
