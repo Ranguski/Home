@@ -8,6 +8,8 @@ do
   echo $file
 done
 
+echo $(date)
+
 echo "Enter a value"
 read userVal
 echo "The user entered - $userVal"
