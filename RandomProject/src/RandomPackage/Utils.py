@@ -1,3 +1,4 @@
+import time;
 import inspect;
 
 class AppUtils(object):
@@ -34,5 +35,14 @@ class AppUtils(object):
             tmp.append(AppUtils.setter(keyname));
             ret[keyname] = tmp;
         return (ret);
+
+    @staticmethod
+    def getNumberOfDays(startdate, enddate):
+        try:
+            startvalue = time.mktime(time.strptime(startdate, "%d-%m-%Y"));
+            endvalue = time.mktime(time.strptime(enddate, "%d-%m-%Y"));
+            return (abs(endvalue - startvalue) / (60 * 60 * 24));
+        except ValueError as exp:
+            return str(exp);
 
 
