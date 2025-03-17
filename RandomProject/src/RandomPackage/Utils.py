@@ -1,5 +1,7 @@
 import time;
+import json;
 import inspect;
+import requests;
 
 class AppUtils(object):
 
@@ -45,4 +47,14 @@ class AppUtils(object):
         except ValueError as exp:
             return str(exp);
 
+    @staticmethod
+    def getRandomQuote():
+        try:
+            response = requests.get("http://dummyjson.com/quotes/random");
+            if(response.ok):
+                print(json.dumps(response.json(), indent = 3));
+            else:
+                response.raise_for_status();
+        except requests.RequestException as exp:
+            print(json.dumps(exp.__dict__, indent = 3));
 
